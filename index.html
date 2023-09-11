@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <h1>Super Duper To Do List</h1>
+    <section id="to_do">
+        <h2>To Do</h2>
+        <table></table>
+        <form action="">
+            <input type="text" id="input_text" required>
+            <input type="date">
+            <button>add</button>
+        </form>
+    </section>
+    <section id="done">
+        <h2>Completed</h2>
+        <ul></ul>
+    </section>
+    <template>
+        <tr>
+            <td id="desc"></td>
+            <td id="date"></td>
+            <td id="fav"></td>
+        </tr>
+    </template>
+</body>
+
+</html>
