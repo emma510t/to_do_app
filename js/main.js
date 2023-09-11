@@ -1,8 +1,23 @@
 "use strict";
 window.addEventListener("load", displayLocalTask);
-const btn = document.querySelector("button");
-const toDoList = document.querySelector("#to_do :nth-child(2)");
+const btn = document.querySelector("#add_button");
+const toDoList = document.querySelector("#todo_table");
 let taskArray = [];
+const editBtn = document.querySelector("#edit_button");
+
+editBtn.addEventListener("click", showEdit);
+
+function showEdit() {
+  document.querySelectorAll("#delete").forEach((btn) => {
+    btn.classList.toggle("hidden");
+    btn.addEventListener("click", delTask);
+  });
+}
+
+function delTask(evt) {
+  console.log("delete");
+evt.
+}
 
 function displayLocalTask() {
   taskArray = JSON.parse(localStorage.getItem("array"));
@@ -10,6 +25,7 @@ function displayLocalTask() {
     console.log(taskArray);
     taskArray.forEach((task) => {
       const clone = document.querySelector("template").content.cloneNode(true);
+      clone.querySelector("tr").id = task.id;
       clone.querySelector("[data-field=desc]").textContent = task.desc;
       clone.querySelector("[data-field=date]").textContent = task.date;
       //clone.querySelector("[data-field=fav]");
@@ -58,6 +74,7 @@ function addTask(evt) {
 
 function displayTask(task) {
   const clone = document.querySelector("template").content.cloneNode(true);
+  clone.querySelector("tr").id = task.id;
   clone.querySelector("[data-field=desc]").textContent = task.desc;
   clone.querySelector("[data-field=date]").textContent = task.date;
   //clone.querySelector("[data-field=fav]");
