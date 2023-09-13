@@ -12,12 +12,12 @@
 <body>
     <h1>Super Duper To Do List</h1>
     <section id="to_do">
-        <div>
+        <div class="flex">
             <h2>To Do</h2>
             <button id="edit_button">edit</button>
         </div>
         <table id="todo_table"></table>
-        <form action="">
+        <form>
             <input type="text" id="input_text" required>
             <input type="date" id="input_date">
             <button id="add_button">add</button>
@@ -31,8 +31,10 @@
         <tr>
             <td data-field="desc"></td>
             <td data-field="date"></td>
-            <td data-field="fav"></td>
-            <td id="delete" class="hidden">x</td>
+            <td data-field="fav" id="fav">
+
+            </td>
+            <td data-field="id" class="delete hidden">x</td>
         </tr>
     </template>
 </body>
