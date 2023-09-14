@@ -30,13 +30,21 @@
         </section>
         <template>
             <tr>
-                <td data-field="done"><input type="checkbox"></td>
+                <td data-field="done"><input type="checkbox" id="myCheckbox"></td>
+
                 <td data-field="desc"></td>
                 <td data-field="date"></td>
                 <td data-field="fav" id="fav">
 
                 </td>
-                <td data-field="id" class="delete hidden">x</td>
+                <td data-field="id" class="delete hidden">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.0208 13.0208L1.70714 1.70711" stroke="#0F101A" stroke-width="1.8"
+                            stroke-linecap="round" />
+                        <path d="M13.0208 1.70711L1.70712 13.0208" stroke="#0F101A" stroke-width="1.8"
+                            stroke-linecap="round" />
+                    </svg>
+                </td>
             </tr>
         </template>
     </main>

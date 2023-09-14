@@ -2,10 +2,9 @@
 const btn = document.querySelector("#add_button");
 const toDoList = document.querySelector("#todo_table");
 const doneList = document.querySelector("#done_table");
-let taskArray = [];
-let doneArray = [];
-localStorage.setItem("doneArray", JSON.stringify(doneArray));
-localStorage.setItem("array", JSON.stringify(taskArray));
+let taskArray = JSON.parse(localStorage.getItem("array")) || [];
+let doneArray = JSON.parse(localStorage.getItem("doneArray")) || [];
+
 const editBtn = document.querySelector("#edit_button");
 const impText = document.querySelector("#input_text");
 const impDate = document.querySelector("#input_date");
@@ -42,14 +41,24 @@ function showEdit() {
     btn.classList.toggle("hidden");
     btn.addEventListener("click", delTask);
   });
-  if (impText.disabled === false) {
-    impText.disabled = true;
-    impDate.disabled = true;
-    btn.disabled = true;
+
+  if (document.querySelector(".delete") !== null) {
+    if (document.querySelector(".delete").classList.contains("hidden")) {
+      impText.disabled = false;
+      impDate.disabled = false;
+      btn.disabled = false;
+      editBtn.textContent = "edit list";
+    } else {
+      impText.disabled = true;
+      impDate.disabled = true;
+      btn.disabled = true;
+      editBtn.textContent = "cancel";
+    }
   } else {
     impText.disabled = false;
     impDate.disabled = false;
     btn.disabled = false;
+    editBtn.textContent = "edit list";
   }
 }
 
@@ -71,6 +80,7 @@ function delTask(evt) {
 function displayAll() {
   displayLocalTask();
   displayLocalDone();
+  showEdit();
 }
 
 function displayLocalTask() {
@@ -167,18 +177,6 @@ function displayLocalDone() {
       }
 
       function taskUnDone(evt) {
-        /*   taskArray.push(task);
-        console.log(taskArray, "push til task");
-        console.log(task);
-        localStorage.setItem("array", JSON.stringify(taskArray));
-        displayLocalTask();
-
-        const targetID = evt.target.parentElement.parentElement.id;
-        const targetObj = doneArray.findIndex((taskObj) => taskObj.id === parseInt(targetID));
-        doneArray.splice(targetObj, 1);
-        localStorage.setItem("doneArray", JSON.stringify(doneArray));
-        displayLocalDone(); */
-
         const targetID = evt.target.parentElement.parentElement.id;
         const targetObj = doneArray.findIndex((taskObj) => taskObj.id === parseInt(targetID));
         const taskToMove = doneArray.splice(targetObj, 1)[0];
@@ -300,5 +298,3 @@ function displayTask(task) {
   clone.querySelector("[data-field=date]").textContent = task.date;
   toDoList.appendChild(clone);
 }
-
-function checkDone() {}
