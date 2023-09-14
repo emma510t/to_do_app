@@ -10,33 +10,36 @@
 </head>
 
 <body>
-    <h1>Super Duper To Do List</h1>
-    <section id="to_do">
-        <div class="flex">
-            <h2>To Do</h2>
-            <button id="edit_button">edit</button>
-        </div>
-        <table id="todo_table"></table>
-        <form>
-            <input type="text" id="input_text" required>
-            <input type="date" id="input_date">
-            <button id="add_button">add</button>
-        </form>
-    </section>
-    <section id="done">
-        <h2>Completed</h2>
-        <ul></ul>
-    </section>
-    <template>
-        <tr>
-            <td data-field="desc"></td>
-            <td data-field="date"></td>
-            <td data-field="fav" id="fav">
+    <main>
+        <h1>My List 😸</h1>
+        <section id="to_do">
+            <div class="flex">
+                <h2>To Do</h2>
+                <button id="edit_button">edit list</button>
+            </div>
+            <table id="todo_table"></table>
+            <form>
+                <input type="text" id="input_text" required>
+                <input type="date" id="input_date">
+                <button id="add_button">add</button>
+            </form>
+        </section>
+        <section id="done">
+            <h2>Completed</h2>
+            <table id="done_table"></table>
+        </section>
+        <template>
+            <tr>
+                <td data-field="done"><input type="checkbox"></td>
+                <td data-field="desc"></td>
+                <td data-field="date"></td>
+                <td data-field="fav" id="fav">
 
-            </td>
-            <td data-field="id" class="delete hidden">x</td>
-        </tr>
-    </template>
+                </td>
+                <td data-field="id" class="delete hidden">x</td>
+            </tr>
+        </template>
+    </main>
 </body>
 
 </html>

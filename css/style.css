@@ -1,5 +1,7 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: rgb(15, 16, 26);
 }
 
 .hidden {
@@ -9,4 +11,46 @@
 .flex {
   display: flex;
   justify-content: space-between;
+}
+
+/* tr {
+  display: flex;
+  justify-content: space-between;
+} */
+
+body {
+  max-width: 500px;
+  margin: 10rem auto;
+  background-color: rgb(114, 142, 255);
+}
+main {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  border-color: rgb(15, 16, 26);
+  border-style: solid;
+}
+
+h1 {
+  border-radius: 0.6rem;
+  border-color: rgb(15, 16, 26);
+  border-style: solid;
+  width: fit-content;
+  padding: 0.6rem 0.8rem;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  background-color: aquamarine;
+}
+
+[data-field="fav"] {
+  background-color: brown;
+  margin: auto 0 auto auto;
+}
+svg {
+  margin: auto 0 auto auto;
 }
